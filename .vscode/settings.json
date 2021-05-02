@@ -1,0 +1,25 @@
+{
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#c74be7",
+    "activityBar.activeBorder": "#e5c23a",
+    "activityBar.background": "#c74be7",
+    "activityBar.foreground": "#000000",
+    "activityBar.inactiveForeground": "#00000099",
+    "activityBarBadge.background": "#e5c23a",
+    "activityBarBadge.foreground": "#000000",
+    "editorGroup.border": "#c74be7",
+    "panel.border": "#c74be7",
+    "sideBar.border": "#c74be7",
+    "statusBar.background": "#b91ee1",
+    "statusBar.foreground": "#ffffff",
+    "statusBarItem.hoverBackground": "#c74be7",
+    "tab.activeBorder": "#c74be7",
+    "titleBar.activeBackground": "#b91ee1",
+    "titleBar.activeForeground": "#ffffff",
+    "titleBar.inactiveBackground": "#b91ee199",
+    "titleBar.inactiveForeground": "#ffffff99"
+  },
+  "peacock.color": "#B91EE1"
+}
