@@ -12,7 +12,7 @@ export const Home = () => {
 				<div className='hero-img' />
 			</section>
 			<section className='info'>
-        <Link to= "/persona">
+        <Link to= "/personas">
 				<div className='info-item'>
 					<img src={Person} alt='personas-icon' height='70px' />
 					<p>Personas</p>

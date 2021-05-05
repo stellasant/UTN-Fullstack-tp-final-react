@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Titulo } from '../../components/Titulo'
 import { Section } from '../../components/Section'
-import { Form } from '../../components/Form'
+import { FormWrapper } from '../../components/Form'
 import { WrapperInput } from '../../components/Form'
 import { GridCards } from '../../components/Card'
 import { GetLibros } from './components/GetLibros'
@@ -58,7 +58,7 @@ export const Libros = (props) => {
     <Section>
 			<h3>Agregar Libro</h3>
 			{error? <>Error en la conexión</> : <></>} 
-			<Form id='login'>
+			<FormWrapper>
 				<WrapperInput>
 					<label for='nombre'>Nombre*</label>
 					<input
@@ -105,7 +105,7 @@ export const Libros = (props) => {
 				</WrapperInput>
 
 				<button type='submit' onClick={()=>guardar()}>Agregar Libro</button>
-			</Form>
+			</FormWrapper>
 			<h3>Listado de Libros</h3>
 			<GridCards>
 				<GetLibros />
