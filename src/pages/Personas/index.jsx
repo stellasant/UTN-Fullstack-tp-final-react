@@ -4,11 +4,10 @@ import { Section } from '../../components/Section'
 import { ActionsSection, FilterSection, AddButton, FilterWrapper } from '../../components/ActionsSection'
 import { AltaPersonas } from './components/AltaPersonas'
 import { ListadoPersonas } from './components/ListadoPersonas'
-import { Modal } from '../../components/Modal'
 import { GridCards } from '../../components/Card'
 
 export const Personas = () => {
-  const [isOpenModal, setIsOpenModal] = useState(false)
+  const [isOpenForm, setIsOpenForm] = useState(false)
   return (
     <>
       <Titulo nombre='Personas' />
@@ -28,9 +27,9 @@ export const Personas = () => {
                 </select>
             </FilterWrapper>
           </FilterSection>
-          <AddButton onClick={() => setIsOpenModal(true)}>+ Agregar Persona</AddButton>
+          <AddButton onClick={() => setIsOpenForm(true)}>+ Agregar Persona</AddButton>
         </ActionsSection>
-        {isOpenModal && <AltaPersonas onClose={() => setIsOpenModal(false)} />}
+        {isOpenForm && <AltaPersonas onClose={() => setIsOpenForm(false)} />}
         <GridCards>
           <ListadoPersonas />
         </GridCards>

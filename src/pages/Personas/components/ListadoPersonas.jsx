@@ -2,50 +2,62 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Card } from '../../../components/Card'
 import {Link} from 'react-router-dom'
+import { ErrorPlaceholder } from '../../../components/ErrorPlaceholder'
+import NoConexion from '../../../assets/placeholders/error-not-found.svg'
+import NoData from '../../../assets/placeholders/error-no-data.svg'
 
 export const ListadoPersonas = () => {
-  const [listado, setListado] = useState([]);
-  const [error,setError] = useState('');  //Manejo de error
+  const [listado, setListado] = React.useState([]);
+    const [error, setError] = React.useState('');
 
-  
-  //Conexión con back end
-  const traerPersonas = async () => {
-        const respuesta = await axios.get("http://localhost:3001/api/personas")
-        .then(res => setListado(res.data.respuesta))
-        .catch(e => console.log(`en el catch ${e}`))
+    const traerPersonas = async() => {
+        try {
+            const respuesta = await axios.get('http://localhost:3001/api/personas');
+            setListado(respuesta.data.respuesta);
+            setError('');
+        } catch(e) {
+            if (e.message=='Network error') {
+                setError('No me pude conectar con el servidor');
+            } else {
+                setError('Otro mensaje que venga del server');
+            }
+        }
     }
-    
-    useEffect(() => {
-        traerPersonas()
-    }, []);
+
+    React.useEffect(() => {
+        traerPersonas();
+    }, [])
+
+    const borrarPersona = async(idPersonaABorrar) => {
+        try {
+            await axios.delete('http://localhost:3001/api/personas' + idPersonaABorrar)
+            traerPersonas();
+        } catch(e) {
+
+        }
+    }
 
   return (
     <>
-      {error ? <>Error en la conexión</> : <></>}
+      {error ? 'Error en la conexión' : <></>}
       {listado.length > 0 && listado.map(persona => (
         <Card.Wrapper key={persona.id}>
-          <Card.Image>
-            <Card.Item>
-              <Card.Label>ID</Card.Label>
-              <Card.Value>{persona.id ? persona.id : '-'}</Card.Value>
-            </Card.Item>
-            </Card.Image>
           <Card.Body>
           <Card.Item>
             <Card.Label>Nombre</Card.Label>
-            <Card.Value>{persona.nombre ? persona.nombre : '-'}</Card.Value>
+            <Card.Value>{persona.nombre}</Card.Value>
           </Card.Item>
           <Card.Item>
             <Card.Label>Apellido</Card.Label>
-            <Card.Value>{persona.apellido ? persona.apellido : '-'}</Card.Value>
+            <Card.Value>{persona.apellido}</Card.Value>
           </Card.Item>
           <Card.Item>
             <Card.Label>Email</Card.Label>
-            <Card.Value>{persona.mail ? persona.mail : '-'}</Card.Value>
+            <Card.Value>{persona.mail}</Card.Value>
           </Card.Item>
           <Card.Item>
             <Card.Label>Alias</Card.Label>
-            <Card.Value>{persona.alias ? persona.alias : '-'}</Card.Value>
+            <Card.Value>{persona.alias}</Card.Value>
           </Card.Item>
           </Card.Body>
         </Card.Wrapper>

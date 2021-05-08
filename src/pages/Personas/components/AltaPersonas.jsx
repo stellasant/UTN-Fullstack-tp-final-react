@@ -43,7 +43,7 @@ export const AltaPersonas = (props) => {
 
     const guardar = async() => {
         // form 
-        await axios.post('https:/localhost:3000/api/personas', form);
+        await axios.post('https:/localhost:3001/api/personas', form);
         props.history.push('/');
     }
   return (

@@ -37,12 +37,12 @@ app.get('/api/categorias', async (req, res) => {
     try {
         const query = 'SELECT * FROM genero';
         const respuesta = await qy(query);
-        res.send({ "respuesta_db": respuesta });
+        res.send({ "respuesta": respuesta });
 
     }
     catch (e) {
         console.error(e.message);
-        res.status(413).send({ "Error inesperado": e.message });
+        res.status(413).send(e.message);
     }
 
 });
@@ -53,12 +53,12 @@ app.get('/api/libros', async (req, res) => {
     try {
         const query = 'SELECT * FROM libros';
         const respuesta = await qy(query);
-        res.send({ "respuesta_db": respuesta })
+        res.send({ "respuesta": respuesta })
 
     }
     catch (e) {
         console.error(e.message);
-        res.status(413).send({ "Error inesperado": e.message });
+        res.status(413).send(e.message);
     }
 
 });
@@ -73,7 +73,7 @@ app.get('/api/categorias/:id', async (req, res) => {
         res.send({ "respuesta": respuesta });
     } catch (e) {
         console.error(e.message);
-        res.status(413).send({ "Error inesperado": e.message });
+        res.status(413).send(e.message);
     }
 
 });
@@ -104,7 +104,7 @@ app.post('/api/categorias', async (req, res) => {
 
     } catch (e) {
         console.error(e.message);
-        res.status(413).send({ "Error inesperado": e.message });
+        res.status(413).send(e.message);
     }
 
 });
@@ -126,7 +126,7 @@ app.delete('/api/categorias/:id', async (req, res) => {
 
     } catch (e) {
         console.error(e.message);
-        res.status(413).send({ "Error inesperado": e.message });
+        res.status(413).send(e.message);
     }
 
 });
@@ -163,7 +163,7 @@ app.get('/api/personas/:id', async (req, res) => {
 
     } catch (e) {
         console.error(e.message);
-        res.status(413).send({ "Error inesperado": e.message });
+        res.status(413).send(e.message);
     }
 
 });
@@ -194,7 +194,7 @@ app.post('/api/personas', async (req, res) => {
 
     } catch (e) {
         console.error(e.message);
-        res.status(413).send({ "Error inesperado": e.message });
+        res.status(413).send(e.message);
 
     }
 });
@@ -227,7 +227,7 @@ app.put('/api/personas/:id', async (req, res) => {
 
     } catch (e) {
         console.error(e.message);
-        res.status(413).send({ "Error inesperado": e.message });
+        res.status(413).send(e.message);
     }
 
 });
@@ -251,7 +251,7 @@ app.delete('/api/personas/:id', async (req, res) => {
 
     } catch (e) {
         console.error(e.message);
-        res.status(413).send({ "Error inesperado": e.message });
+        res.status(413).send(e.message);
     }
 
 });
@@ -302,7 +302,7 @@ app.post('/api/libros', async (req, res) => {
 
     } catch (e) {
         console.error(e.message);
-        res.status(413).send({ "Error inesperado": e.message });
+        res.status(413).send(e.message);
     }
 
 });

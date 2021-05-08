@@ -1,7 +1,7 @@
 import React from 'react'
-import Person from '../../images/man.png'
-import Books from '../../images/book.svg'
-import Generos from '../../images/magic-book.svg'
+import Person from '../../assets/man.png'
+import Books from '../../assets/book.svg'
+import Generos from '../../assets/magic-book.svg'
 import { Link } from 'react-router-dom'
 import './style.css'
 
